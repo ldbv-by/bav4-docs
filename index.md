@@ -4,7 +4,7 @@
 
 - [QueryParameters Docs](queryParameters.md)
 
-## WebComponent
+## WebComponent (Beta)
 
 - [WebComponent Docs](wc.md)
 - [WebComponent Examples](test.html)
