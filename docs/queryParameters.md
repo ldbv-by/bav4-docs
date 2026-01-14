@@ -24,10 +24,11 @@
   - [FEATURE_INFO_REQUEST][20]
     - [Examples][21]
   - [ZOOM_TO_EXTENT][22]
-  - [CROSSHAIR][23]
-    - [Examples][24]
-  - [GEOLOCATION][25]
-    - [Examples][26]
+    - [Examples][23]
+  - [CROSSHAIR][24]
+    - [Examples][25]
+  - [GEOLOCATION][26]
+    - [Examples][27]
 
 ## domain/queryParameters
 
@@ -39,7 +40,7 @@ Query parameters allow users to share and embed customized map states through UR
 Parameters are organized into three categories: **Map View** (zoom, center, rotation),
 **Layer Configuration** (layers, visibility, opacity, styling), and **Embed Mode** configuration.
 
-Type: [String][27]
+Type: [String][28]
 
 ### Examples
 
@@ -184,7 +185,7 @@ Coordinates must be in EPSG:3857 (Web Mercator) format.
 #### Examples
 
 ```javascript
-https://atlas.bayern.de?l=atkis&fir=1306912.414835,6294520.584972
+https://atlas.bayern.de?l=atkis,6f5a389c-4ef3-4b5a-9916-475fd5c5962b&fir=1269930.753480,6092384.278496
 ```
 
 ### ZOOM_TO_EXTENT
@@ -194,6 +195,12 @@ https://atlas.bayern.de?l=atkis&fir=1306912.414835,6294520.584972
 
 Fits the map view to the extent of the specified layer.
 The index refers to the layer order in the `LAYER` parameter.
+
+#### Examples
+
+```javascript
+https://atlas.bayern.de/?l=atkis,f_b8feba10-f14e-11f0-bfca-572ff6603ccf_9dc40aa9-acfe-47a0-a2a5-2976d826bff9&zte=1
+```
 
 ### CROSSHAIR
 
@@ -248,8 +255,9 @@ https://atlas.bayern.de?gl=true
 [20]: #feature_info_request
 [21]: #examples-9
 [22]: #zoom_to_extent
-[23]: #crosshair
-[24]: #examples-10
-[25]: #geolocation
-[26]: #examples-11
-[27]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[23]: #examples-10
+[24]: #crosshair
+[25]: #examples-11
+[26]: #geolocation
+[27]: #examples-12
+[28]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
