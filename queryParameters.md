@@ -2,33 +2,33 @@
 
 ### Table of Contents
 
-- [domain/queryParameters][1]
-- [QueryParameters][2]
-  - [Examples][3]
-  - [ZOOM][4]
-    - [Examples][5]
-  - [CENTER][6]
-    - [Examples][7]
-  - [ROTATION][8]
-    - [Examples][9]
-  - [LAYER][10]
-    - [Examples][11]
-  - [LAYER_VISIBILITY][12]
-    - [Examples][13]
-  - [LAYER_OPACITY][14]
-    - [Examples][15]
-  - [LAYER_DISPLAY_FEATURE_LABELS][16]
-    - [Examples][17]
-  - [QUERY][18]
-    - [Examples][19]
-  - [FEATURE_INFO_REQUEST][20]
-    - [Examples][21]
-  - [ZOOM_TO_EXTENT][22]
-    - [Examples][23]
-  - [CROSSHAIR][24]
-    - [Examples][25]
-  - [GEOLOCATION][26]
-    - [Examples][27]
+*   [domain/queryParameters][1]
+*   [QueryParameters][2]
+    *   [Examples][3]
+    *   [ZOOM][4]
+        *   [Examples][5]
+    *   [CENTER][6]
+        *   [Examples][7]
+    *   [ROTATION][8]
+        *   [Examples][9]
+    *   [LAYER][10]
+        *   [Examples][11]
+    *   [LAYER\_VISIBILITY][12]
+        *   [Examples][13]
+    *   [LAYER\_OPACITY][14]
+        *   [Examples][15]
+    *   [LAYER\_DISPLAY\_FEATURE\_LABELS][16]
+        *   [Examples][17]
+    *   [QUERY][18]
+        *   [Examples][19]
+    *   [FEATURE\_INFO\_REQUEST][20]
+        *   [Examples][21]
+    *   [ZOOM\_TO\_EXTENT][22]
+        *   [Examples][23]
+    *   [CROSSHAIR][24]
+        *   [Examples][25]
+    *   [GEOLOCATION][26]
+        *   [Examples][27]
 
 ## domain/queryParameters
 
@@ -37,8 +37,6 @@
 Enum which holds all valid query parameter keys for URL-based map configuration.
 
 Query parameters allow users to share and embed customized map states through URLs.
-Parameters are organized into three categories: **Map View** (zoom, center, rotation),
-**Layer Configuration** (layers, visibility, opacity, styling), and **Embed Mode** configuration.
 
 Type: [String][28]
 
@@ -96,13 +94,13 @@ https://atlas.bayern.de?r=0.42
 
 Specifies the layers to display. Each layer can be identified by:
 
-- **ID:** An internal layer identifier (e.g., `atkis`, `tk`)
-- **URL:** An external GeoResource URL with optional format specifier
+*   **ID:** An internal layer identifier (e.g., `atkis`, `tk`)
+*   **URL:** An external GeoResource URL with optional format specifier
 
 **URL Patterns:**
 
-- **KML, GPX, GEOJSON, EWKT:** `url||[label]`
-- **WMS:** `url||layer||[label]`
+*   **KML, GPX, GEOJSON, EWKT:** `url||[label]`
+*   **WMS:** `url||layer||[label]`
 
 #### Examples
 
@@ -121,7 +119,7 @@ https://atlas.bayern.de?l=atkis,https%3A%2F%2Fgeodaten.bayern.de%2Fodd%2Fm%2F2%2
 https://atlas.bayern.de?z=13&l=atkis,https%3A%2F%2Fgeoservices.bayern.de%2Fod%2Fwms%2Fatkis%2Fv1%2Ffreizeitwege||by_fzw_radwege||Radwege
 ```
 
-### LAYER_VISIBILITY
+### LAYER\_VISIBILITY
 
 **Parameter Key:** `"l_v"`
 **Type:** `boolean,boolean,...` (comma-separated, indexed by layer order)
@@ -134,7 +132,7 @@ Controls the visibility of each layer. Order must correspond to the `LAYER` para
 https://atlas.bayern.de?l=atkis,tk&l_v=true,false
 ```
 
-### LAYER_OPACITY
+### LAYER\_OPACITY
 
 **Parameter Key:** `"l_o"`
 **Type:** `number,number,...` (0-1 range, comma-separated, indexed by layer order)
@@ -147,7 +145,7 @@ Controls the opacity/transparency of each layer. Order must correspond to the `L
 https://atlas.bayern.de?l=atkis,tk&l_o=1,0.5
 ```
 
-### LAYER_DISPLAY_FEATURE_LABELS
+### LAYER\_DISPLAY\_FEATURE\_LABELS
 
 **Parameter Key:** `"l_dfl"`
 **Type:** `boolean,boolean,...` (comma-separated, indexed by layer order)
@@ -174,7 +172,7 @@ Initializes a search request with the given query string.
 https://atlas.bayern.de?q=München
 ```
 
-### FEATURE_INFO_REQUEST
+### FEATURE\_INFO\_REQUEST
 
 **Parameter Key:** `"fir"`
 **Type:** `number,number` (coordinate pair in EPSG:3857)
@@ -188,7 +186,7 @@ Coordinates must be in EPSG:3857 (Web Mercator) format.
 https://atlas.bayern.de?l=atkis,6f5a389c-4ef3-4b5a-9916-475fd5c5962b&fir=1269930.753480,6092384.278496
 ```
 
-### ZOOM_TO_EXTENT
+### ZOOM\_TO\_EXTENT
 
 **Parameter Key:** `"zte"`
 **Type:** `number` (layer index)
@@ -234,30 +232,57 @@ https://atlas.bayern.de?gl=true
 ```
 
 [1]: #domainqueryparameters
+
 [2]: #queryparameters
+
 [3]: #examples
+
 [4]: #zoom
+
 [5]: #examples-1
+
 [6]: #center
+
 [7]: #examples-2
+
 [8]: #rotation
+
 [9]: #examples-3
+
 [10]: #layer
+
 [11]: #examples-4
+
 [12]: #layer_visibility
+
 [13]: #examples-5
+
 [14]: #layer_opacity
+
 [15]: #examples-6
+
 [16]: #layer_display_feature_labels
+
 [17]: #examples-7
+
 [18]: #query
+
 [19]: #examples-8
+
 [20]: #feature_info_request
+
 [21]: #examples-9
+
 [22]: #zoom_to_extent
+
 [23]: #examples-10
+
 [24]: #crosshair
+
 [25]: #examples-11
+
 [26]: #geolocation
+
 [27]: #examples-12
+
 [28]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
