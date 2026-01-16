@@ -25,7 +25,7 @@ Key features
 - Events & methods: emits events (map-click, view-change) and provides methods (addLayer, modifyView, addMarker, zoomToExtent).
 - Terms & attribution: includes automatic BayernAtlas attribution; users must follow BayernAtlas terms of use and API rules.
 
-Note: The BayernAtlas WebComponent is currently just available for Beta testers.
+Note: The BayernAtlas web component is currently only available to beta testers.
 
 - [WebComponent Docs](wc.md)
 - [WebComponent Examples](test.html)
