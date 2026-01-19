@@ -30,4 +30,4 @@ Key Features
 Note: The BayernAtlas web component is currently only available to beta testers.
 
 - [WebComponent Docs](wc.md)
-- [WebComponent Examples](test.html)
+- [WebComponent Examples](wc-examples.html)
