@@ -17,13 +17,15 @@ Documentation of the query parameters of the BayernAtlas. Query parameters allow
 The BayernAtlas Web Component is a lightweight, framework-agnostic Web Component that embeds the BayernAtlas map into any web page or single-page app as a reusable custom element.
 It exposes simple attributes, properties and events so you can configure base layers (topographic, orthophoto), map center/zoom, add GeoJSON/markers, and react to user interactions (click, move, extent change) without pulling in a large mapping framework.
 
-Key features
+Key Features
 
-- Easy to use: drop-in custom element with declarative attributes (center, zoom, layers) and JS API for dynamic control.
-- BayernAtlas integration: loads BayernAtlas tiles/WMS/WMTS layers, supports common BayernAtlas layer names and respects required attribution.
-- Vector overlays: add markers, polylines, polygons or full GeoJSON, EWKT, KML, GPX features programmatically.
-- Events & methods: emits events (map-click, view-change) and provides methods (addLayer, modifyView, addMarker, zoomToExtent).
-- Terms & attribution: includes automatic BayernAtlas attribution; users must follow BayernAtlas terms of use and API rules.
+- **Declarative Setup**: Configure maps using HTML attributes
+- **Programmatic Control**: Full JavaScript API for dynamic manipulation
+- **Multiple Projections**: Support for EPSG:4326 and EPSG:25832
+- **Layer Management**: Add, modify, and remove map layers
+- **Drawing Tools**: Built-in geometry creation tools
+- **Event System**: Comprehensive event handling for map interactions
+- **Responsive Design**: Adapts to container dimensions
 
 Note: The BayernAtlas web component is currently only available to beta testers.
 
