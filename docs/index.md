@@ -14,7 +14,7 @@ Documentation of the query parameters of the BayernAtlas. Query parameters allow
 
 ## WebComponent (Beta)
 
-The BayernAtlas Web Component is a lightweight, framework-agnostic Web Component that embeds the BayernAtlas map into any web page or single-page app as a reusable custom element.
+The BayernAtlas WebComponent is a lightweight, framework-agnostic Web Component that embeds the BayernAtlas map into any web page or single-page app as a reusable custom element.
 It exposes simple attributes, properties and events so you can configure base layers (topographic, orthophoto), map center/zoom, add GeoJSON/markers, and react to user interactions (click, move, extent change) without pulling in a large mapping framework.
 
 Key Features
@@ -27,7 +27,7 @@ Key Features
 - **Event System**: Comprehensive event handling for map interactions
 - **Responsive Design**: Adapts to container dimensions
 
-Note: The BayernAtlas web component is currently only available to beta testers.
+**Note**: The BayernAtlas WebComponent is currently only available to beta testers.
 
 - [WebComponent Docs](wc.md)
 - [WebComponent Examples](wc-examples.html)
