@@ -155,8 +155,6 @@ MarkerOptions {
 id: "myMarker0", // The id of the marker (string, optional). When no ID is given a random ID will be generated
 label: "My label" // The label of the marker (string, optional). Must be set if the marker should be selectable by the user
 }
-
-//Events
 ```
 
 ## Attributes
