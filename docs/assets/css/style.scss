@@ -1,0 +1,72 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+:root {
+  --primary-color: oklch(0.25 0.04 236);
+  --heading-color: rgb(9, 157, 220);
+}
+
+.page-header {
+  background-image: url(../favicon.svg) !important;
+  background-repeat: no-repeat;
+  background-size: 105px;
+  background-color: var(--primary-color);
+  background-position-y: 14.5px;
+  background-position-x: calc(54% - 15rem);
+  padding: 2.5rem 1rem;
+  text-align: left;
+
+
+  .project-name, .project-tagline { /* TITLE */
+    color: #fff !important;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    margin-left: calc(54% - 10rem);
+    text-shadow: 1px 0px #000;
+  }
+  .project-tagline {
+    opacity: 0.85;
+  }
+
+  a {
+    display: none;
+  }
+}
+
+h1.project-name
+{
+  font-size: 1.5rem;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--heading-color) !important;
+}
+
+a {
+  text-decoration: underline !important; 
+}
+
+.main-content table th, .main-content table td
+{
+  border: 1px solid #d8d9da;
+}
+.main-content code {
+  background-color: #f3f9ff;
+  color: var(--heading-color);
+}
+
+@media screen and (min-width: 72em) {
+  .main-content {
+    max-width: 72rem;
+    padding: 2rem 6rem;
+    margin: 0 auto;
+    font-size: 1.05rem;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
