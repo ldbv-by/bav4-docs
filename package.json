@@ -6,7 +6,7 @@
   },
   "scripts": {
     "ensure-repo": "node ./scripts/ensure-repo.js 'https://github.com/ldbv-by/bav4.git' 'bav4' 'master'",
-    "doc": "npx -y web-component-analyzer bav4/src/modules/wc --format markdown --outFile docs/wc.md; documentation build bav4/src/domain/queryParameters.js -f md -o docs/queryParameters.md; cp bav4/documentation/wc/examples.html docs/wc-examples.html",
+    "doc": "npx -y web-component-analyzer bav4/src/modules/wc --format markdown --outFile docs/wc.md; documentation build bav4/src/domain/queryParameters.js -f md -o docs/queryParameters.md",
     "gh-pages": "gh-pages -d docs"
   }
 }
