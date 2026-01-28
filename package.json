@@ -1,12 +1,15 @@
 {
-  "name": "bav4-docs",
-  "devDependencies": {
-    "documentation": "^14.0.3",
-    "gh-pages": "^6.3.0"
-  },
-  "scripts": {
-    "ensure-repo": "node ./scripts/ensure-repo.js 'https://github.com/ldbv-by/bav4.git' 'bav4' 'master'",
-    "doc": "npx -y web-component-analyzer bav4/src/modules/wc --format markdown --outFile docs/wc.md; documentation build bav4/src/domain/queryParameters.js -f md -o docs/queryParameters.md",
-    "gh-pages": "gh-pages -d docs"
-  }
+	"name": "bav4-docs",
+	"devDependencies": {
+		"documentation": "^14.0.3",
+		"gh-pages": "^6.3.0",
+		"prettier": "3.8.1"
+	},
+	"scripts": {
+		"ensure-repo": "node ./scripts/ensure-repo.js 'https://github.com/ldbv-by/bav4.git' 'bav4' 'master'",
+		"doc": "npx -y web-component-analyzer bav4/src/modules/wc --format markdown --outFile docs/wc.md; documentation build bav4/src/domain/queryParameters.js -f md -o docs/queryParameters.md",
+		"gh-pages": "gh-pages -d docs",
+		"prettier:check": "prettier --check .",
+		"prettier": "prettier --write ."
+	}
 }
