@@ -21,6 +21,9 @@ jobs:
         run: |
           npm ci
 
+      - name: Run checks
+        run: |
+          npm run prettier:check
       # - name: Create docs
       #   run: |
       #     npm run clone-and-checkout
@@ -44,10 +47,6 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-
-      - name: Run checks
-        run: |
-          npm run prettier:check
 
       - name: Deploy app
         run: |
