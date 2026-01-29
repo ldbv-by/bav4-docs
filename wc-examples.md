@@ -759,6 +759,6 @@ ba.addEventListener('baLoad', (event) => {
     		block.parentElement.after(button);
     	});
     </script>
-    <script src="http://localhost:8080/wc.js" type="module" crossorigin="anonymous"></script>
+    <script src="https://atlas.test.bayern.de/wc.js" type="module" crossorigin="anonymous"></script>
 
 </div>

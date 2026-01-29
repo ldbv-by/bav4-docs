@@ -1,1 +1,0 @@
-<iframe src='https://atlas.bayern.de/embed.html?c=671115%2C5416102&z=6&r=0&l=vt_luftbild&mid=1&ec_map_activation=true&ec_' link_to_app=true width='100%' height='250px' loading='lazy' frameborder='0' style='border:0' role='application'></iframe>
