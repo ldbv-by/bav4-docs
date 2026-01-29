@@ -1,3 +1,5 @@
-# theme: jekyll-theme-hacker
-# title: BayernAtlas Documentation
-# description: Public Documentation of the BayernAtlas
+remote_theme: pages-themes/cayman@v0.2.0
+title: 'BayernAtlas 4.5'
+description: 'Public Documentation'
+plugins:
+  - jekyll-remote-theme # add this line to the plugins list if you already have one

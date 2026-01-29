@@ -1,10 +1,4 @@
-# Documentation of the BayernAtlas
-
-<div>
-<img src="img/ba.png"
-     alt="BayernAtlas Image"
-     />
-</div>
+<img class="full-width" src="img/ba.png">
 
 ## Query Parameters
 
