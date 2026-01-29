@@ -199,6 +199,7 @@ label: "My label" // The label of the marker (string, optional). Must be set if 
 | `addMarker`         | `(coordinate: Coordinate, markerOptions?: MarkerOptions \| undefined): string` | Adds a marker to the map at the specified coordinate.<br />Markers can be selected by users if they have a label.<br /><br />**coordinate**: The marker position<br />**markerOptions**: Marker configuration |
 | `clearHighlights`   | `(): void`                                       | Clears all feature highlights/selection from the map. |
 | `clearMarkers`      | `(): void`                                       | Removes all markers from the map.                |
+| `closeTool`         | `(): void`                                       | Closes the current active tool.                  |
 | `modifyLayer`       | `(layerId: string, options?: ModifyLayerOptions \| undefined): void` | Modifies an existing layer's properties.<br />All options are optional - only specified properties will be updated.<br /><br />**layerId**: The ID of the layer to modify<br />**options**: The modification options |
 | `modifyView`        | `(view?: View): void`                            | Modifies the map view (center, zoom, rotation).<br />All parameters are optional - only specified properties will be updated.<br /><br />**view**: The view configuration to apply |
 | `removeLayer`       | `(layerId: string): void`                        | Removes a layer from the map.<br /><br />**layerId**: The ID of the layer to remove |
