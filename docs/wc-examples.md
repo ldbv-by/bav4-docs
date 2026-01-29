@@ -31,9 +31,9 @@
 	<h4>HTML:</h4>
 	<pre><code class="language-html">&lt;bayern-atlas l=&quot;&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
 	<h4>JavaScript:</h4>
-	<pre><code class="language-javascript">document.querySelector('bayern-atlas')
-.addEventListener('baLoad', (event) => {  // register a load-event listener on the map
-		// save to call the bayern-atlas map now
+	<pre><code class="language-javascript">// register a load-event listener on the map
+document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {  
+	// save to call the bayern-atlas map now
 	const baMap = event.target;
 	const { GEORESOURCE_AERIAL } = ba;
 	//add a layer to the map referencing the the GeoResource with the ID = GEORESOURCE_AERIAL
@@ -62,10 +62,9 @@
     <h4>HTML:</h4>
     <pre><code class="language-html">&lt;div class=&quot;size-example-wrapper&quot;&gt;&lt;bayern-atlas l=&quot;GEORESOURCE_WEB&quot; r=&quot;.5&quot;&gt;&lt;/bayern-atlas&gt;&lt;/div&gt;</code></pre>
     <h4>CSS:</h4>
-    <pre><code class="language-css"> .size-example-wrapper {
-
-height: 400px;
-width: 400px;
+    <pre><code class="language-css">.size-example-wrapper {
+  height: 400px;
+  width: 400px;
 }
 </code></pre>
 
@@ -94,12 +93,11 @@ width: 400px;
 	<pre><code class="language-html">&lt;bayern-atlas l=&quot;GEORESOURCE_WEB&quot; r=&quot;.5&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
 	<h4>JavaScript:</h4>
 	<pre><code class="language-javascript">document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {
-const baMap = event.target;
-// register a baChange -listener
-baMap.addEventListener("baChange",(event) => {
-	console.log(event.detail);
-});
+	const baMap = event.target;
 
+	baMap.addEventListener("baChange",(event) => {
+		console.log(event.detail);
+	});
 });
 </code></pre>
 
@@ -129,20 +127,20 @@ baMap.addEventListener("baChange",(event) => {
 	<pre><code class="language-html">&lt;bayern-atlas l=&quot;GEORESOURCE_WEB,803da236-15f1-4c97-91e0-73248154d381&quot;&gt;&lt;/bayern-atlas&gt;
 
 &lt;select class=&quot;layer-select&quot;&gt;
-&lt;option selected value=&quot;GEORESOURCE_AERIAL&quot;&gt;Aerial&lt;/option&gt;
-&lt;option value=&quot;GEORESOURCE_WEB&quot; selected&gt;Map&lt;/option&gt;
+  &lt;option selected value=&quot;GEORESOURCE_AERIAL&quot;&gt;Aerial&lt;/option&gt;
+  &lt;option value=&quot;GEORESOURCE_WEB&quot; selected&gt;Map&lt;/option&gt;
 &lt;/select&gt;</code></pre>
 
     <h4>JavaScript:</h4>
     <pre><code class="language-javascript">document.querySelector('#fgs52ym bayern-atlas').addEventListener('baLoad', (event) => {
+	const baMap = event.target;
 
-const baMap = event.target;
-document.querySelector('.layer-select').addEventListener('change', (event) => {
-// remove the layer on index=0
-baMap.removeLayer(baMap.layers[0]);
-// add a new layer on index=0
-baMap.addLayer(event.target.value, { zIndex: 0 });
-});
+	document.querySelector('.layer-select').addEventListener('change', (event) => {
+		// remove the layer on index=0
+		baMap.removeLayer(baMap.layers[0]);
+		// add a new layer on index=0
+		baMap.addLayer(event.target.value, { zIndex: 0 });
+	});
 });
 </code></pre>
 
@@ -173,7 +171,6 @@ baMap.addLayer(event.target.value, { zIndex: 0 });
     </div>
     <h4>HTML:</h4>
     <pre><code class="language-html">&lt;input type="range" class="opacity-input" min="0" max="100" value="50" /&gt;
-
 &lt;bayern-atlas l="GEORESOURCE_WEB,GEORESOURCE_HISTORIC" z="8"&gt;&lt;/bayern-atlas&gt;
 </code></pre>
 
@@ -181,20 +178,19 @@ baMap.addLayer(event.target.value, { zIndex: 0 });
     <pre><code class="language-javascript">
 
 ba.addEventListener('baLoad', (event) => {
-const ba = event.target;
-const opacitySlider = document.querySelector('.opacity-input');
-const historicLayer = ba.layers[1];
+	const ba = event.target;
+	const opacitySlider = document.querySelector('.opacity-input');
+	const historicLayer = ba.layers[1];
 
-ba.modifyLayer(historicLayer, {
-opacity: parseFloat(opacitySlider.value) \* 0.01
-});
+	ba.modifyLayer(historicLayer, {
+		opacity: parseFloat(opacitySlider.value) * 0.01
+	});
 
-opacitySlider.addEventListener('input', (event) => {
-ba.modifyLayer(historicLayer, {
-opacity: parseFloat(opacitySlider.value) \* 0.01
-});
-});
-
+	opacitySlider.addEventListener('input', (event) => {
+		ba.modifyLayer(historicLayer, {
+			opacity: parseFloat(opacitySlider.value) * 0.01
+		});
+	});
 });</code></pre>
 
 </div>
@@ -207,39 +203,35 @@ opacity: parseFloat(opacitySlider.value) \* 0.01
 	</div>
 	<h4>HTML:</h4>
 	<pre><code class="language-html">&lt;ul class="layer-list"&gt;&lt;/ul&gt;
-
 &lt;bayern-atlas l="GEORESOURCE_AERIAL,GEORESOURCE_WEB,GEORESOURCE_HISTORIC"&gt;&lt;/bayern-atlas&gt;
 </code></pre>
 
     <h4>Javascript</h4>
     <pre><code class="language-javascript">document.querySelector("bayern-atlas").addEventListener('baLoad', (event) => {
+	const ba = event.target;
+	const updateDOM = (event) => {
+		const layerListElement = document.querySelector('.layer-list');
+		layerListElement.innerHTML = '';
 
-const ba = event.target;
-const updateDOM = (event) => {
-const layerListElement = document.querySelector('.layer-list');
-layerListElement.innerHTML = '';
+		for (let i = ba.layers.length - 1; i &gt;= 0; i--) {
+			const muteButton = document.createElement('button');
+			const listItem = document.createElement('li');
+			const isVisible = ba.layersVisibility[i];
 
-    for (let i = ba.layers.length - 1; i &gt;= 0; i--) {
-    	const muteButton = document.createElement('button');
-    	const listItem = document.createElement('li');
-    	const isVisible = ba.layersVisibility[i];
+			listItem.append(`Layer ${i}: ${ba.layers[i]} `);
+			muteButton.innerText = isVisible ? 'Hide' : 'Show';
+			muteButton.addEventListener('click', () => {
+				ba.modifyLayer(ba.layers[i], { visible: !isVisible });
+			});
+			listItem.append(muteButton);
+			layerListElement.append(listItem);
+		}
+	};
 
-    	listItem.append(`Layer ${i}: ${ba.layers[i]} `);
-    	muteButton.innerText = isVisible ? 'Hide' : 'Show';
-    	muteButton.addEventListener('click', () => {
-    		ba.modifyLayer(ba.layers[i], { visible: !isVisible });
-    	});
-    	listItem.append(muteButton);
-    	layerListElement.append(listItem);
-    }
-
-};
-
-updateDOM();
-ba.addEventListener('baChange', (event) => {
-updateDOM(event);
-});
-
+	updateDOM();
+	ba.addEventListener('baChange', (event) => {
+		updateDOM(event);
+	});
 });</code></pre>
 
     <script>
@@ -286,46 +278,43 @@ updateDOM(event);
 	<h4>HTML</h4>
 
     <pre><code class="language-html">&lt;ul class=&quot;layer-list&quot;&gt;&lt;/ul&gt;
-
 &lt;bayern-atlas l=&quot;GEORESOURCE_AERIAL,GEORESOURCE_WEB,GEORESOURCE_HISTORIC&quot; z=&quot;6&quot;&gt;&lt;/bayern-atlas&gt;
 </code></pre>
 
     <h4>Javascript</h4>
     <pre><code class="language-javascript">document.querySelector("bayern-atlas").addEventListener('baLoad', (event) => {
+	const ba = event.target;
+	const updateDOM = () => {
+		const layerListElement = document.querySelector('.layer-list');
+		layerListElement.innerHTML = '';
 
-const ba = event.target;
-const updateDOM = () => {
-const layerListElement = document.querySelector('.layer-list');
-layerListElement.innerHTML = '';
+		for (let i = ba.layers.length - 1; i &gt;= 0; i--) {
+			const listItem = document.createElement('li');
+			listItem.append(`Layer ${i}: ${ba.layers[i]}`);
 
-    for (let i = ba.layers.length - 1; i &gt;= 0; i--) {
-    	const listItem = document.createElement('li');
-    	listItem.append(`Layer ${i}: ${ba.layers[i]}`);
+			if (i &lt; ba.layers.length - 1) {
+				const downButton = document.createElement('button');
+				downButton.innerText = 'UP';
+				downButton.addEventListener('click', () => {
+					ba.modifyLayer(ba.layers[i], { zIndex: i + 1 });
+				});
+				listItem.append(downButton);
+			}
+			if (i &gt; 0) {
+				const upButton = document.createElement('button');
+				upButton.innerText = 'DOWN';
+				upButton.addEventListener('click', () => {
+					ba.modifyLayer(ba.layers[i], { zIndex: i - 1 });
+				});
+				listItem.append(upButton);
+			}
 
-    	if (i &lt; ba.layers.length - 1) {
-    		const downButton = document.createElement('button');
-    		downButton.innerText = 'UP';
-    		downButton.addEventListener('click', () => {
-    			ba.modifyLayer(ba.layers[i], { zIndex: i + 1 });
-    		});
-    		listItem.append(downButton);
-    	}
-    	if (i &gt; 0) {
-    		const upButton = document.createElement('button');
-    		upButton.innerText = 'DOWN';
-    		upButton.addEventListener('click', () => {
-    			ba.modifyLayer(ba.layers[i], { zIndex: i - 1 });
-    		});
-    		listItem.append(upButton);
-    	}
+			layerListElement.append(listItem);
+		}
+	};
 
-    	layerListElement.append(listItem);
-    }
-
-};
-
-updateDOM();
-ba.addEventListener('baChange', updateDOM);
+	updateDOM();
+	ba.addEventListener('baChange', updateDOM);
 
 });</code></pre>
 
@@ -393,11 +382,10 @@ ba.addEventListener('baChange', updateDOM);
 	<pre><code class="language-html">&lt;bayern-atlas l=&quot;&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
 	<h4>JavaScript:</h4>
 	<pre><code class="language-javascript">document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {
-const baMap = event.target;
-const dataAsEwkt = "SRID=4326;POLYGON Z((11.60243572 47.98438157 0,11.60861553 47.9832613 0,11.60664142 47.97932578 0,11.60089077 47.98044614 0,11.60243572 47.98438157 0))";
-// a new layer containing the data and zoom to its extent
-baMap.addLayer(dataAsEwkt, { zoomToExtent: true, style: { baseColor:"#8f37db" } });
-
+	const baMap = event.target;
+	const dataAsEwkt = "SRID=4326;POLYGON Z((11.60243572 47.98438157 0,11.60861553 47.9832613 0,11.60664142 47.97932578 0,11.60089077 47.98044614 0,11.60243572 47.98438157 0))";
+	// a new layer containing the data and zoom to its extent
+	baMap.addLayer(dataAsEwkt, { zoomToExtent: true, style: { baseColor:"#8f37db" } });
 });
 </code></pre>
 
@@ -424,20 +412,18 @@ baMap.addLayer(dataAsEwkt, { zoomToExtent: true, style: { baseColor:"#8f37db" } 
 	<pre><code class="language-html">&lt;bayern-atlas l=&quot;&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
 	<h4>JavaScript:</h4>
 	<pre><code class="language-javascript">document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {
-
-const baMap = event.target;
-// we add a marker. To be selectable the marker must have a label
-const markerId = baMap.addMarker([11.60861553, 47.9832613], { label: "MyMarker" });
-baMap.addEventListener("baFeatureSelect", (event) => {
-// when our marker is selected by the user we want to remove it after a delay of 1s
-if(event.detail.features.map(f => f.properties.id).includes(markerId)) {
-setTimeout(() => {
-baMap.removeMarker(markerId);
-baMap.clearHighlights();
-}, 1000);
-}
-});
-
+	const baMap = event.target;
+	// we add a marker. To be selectable the marker must have a label
+	const markerId = baMap.addMarker([11.60861553, 47.9832613], { label: "MyMarker" });
+	baMap.addEventListener("baFeatureSelect", (event) => {
+		// when our marker is selected by the user we want to remove it after a delay of 1s
+		if(event.detail.features.map(f => f.properties.id).includes(markerId)) {
+			setTimeout(() => {
+				baMap.removeMarker(markerId);
+				baMap.clearHighlights(); 
+			}, 1000);
+		}
+	});
 });
 </code></pre>
 
@@ -473,14 +459,13 @@ baMap.clearHighlights();
     <pre><code class="language-html">&lt;bayern-atlas l=&quot;GEORESOURCE_TOPOGRAPHIC&quot; ec_srid=&quot;25832&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
     <h4>JavaScript:</h4>
     <pre><code class="language-javascript">document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {
-
-const baMap = event.target;
-const coordinate25832 = [703437, 5425425]; // coordinate in EPSG:25832
-baMap.modifyView({ center: coordinate25832, zoom: 12 });
-baMap.addMarker(coordinate25832, { label: "MyMarker" });
-baMap.addEventListener("baFeatureSelect",(event) => {
-console.log(JSON.stringify(event.detail, null, 1);
-});
+	const baMap = event.target;
+	const coordinate25832 = [703437, 5425425]; // coordinate in EPSG:25832
+	baMap.modifyView({ center: coordinate25832, zoom: 12 });
+	baMap.addMarker(coordinate25832, { label: "MyMarker" });
+	baMap.addEventListener("baFeatureSelect",(event) => {
+		console.log(JSON.stringify(event.detail, null, 1);
+	});
 
 });
 </code></pre>
@@ -512,15 +497,14 @@ console.log(JSON.stringify(event.detail, null, 1);
     <pre><code class="language-html">&lt;bayern-atlas ec_srid=&quot;4326&quot; ec_draw_tool=&quot;point,line,polygon&quot; ec_geometry_format=&quot;kml&quot;&gt;</code></pre>
     <h4>JavaScript:</h4>
     <pre><code class="language-javascript">document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {
-
-const baMap = event.target;
-const coordinate25832 = [703437, 5425425]; // coordinate in EPSG:25832
-baMap.modifyView({ center: coordinate25832, zoom: 12 });
-baMap.addMarker(coordinate25832, { label: "MyMarker" });
-// register a baGeometryChange -listener
-baMap.addEventListener("baGeometryChange",(event) => {
-console.log(JSON.stringify(event.detail, null, 1);
-});
+	const baMap = event.target;
+	const coordinate25832 = [703437, 5425425]; // coordinate in EPSG:25832
+	baMap.modifyView({ center: coordinate25832, zoom: 12 });
+	baMap.addMarker(coordinate25832, { label: "MyMarker" });
+	// register a baGeometryChange -listener
+	baMap.addEventListener("baGeometryChange",(event) => {
+		console.log(JSON.stringify(event.detail, null, 1);
+	});
 
 });
 </code></pre>
@@ -549,13 +533,13 @@ console.log(JSON.stringify(event.detail, null, 1);
 	<pre><code class="language-html">&lt;bayern-atlas ec_srid=&quot;4326&quot; ec_draw_tool=&quot;point,line,polygon&quot; ec_geometry_format=&quot;kml&quot;&gt;</code></pre>
 	<h4>JavaScript:</h4>
 	<pre><code class="language-javascript">document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {
-const baMap = event.target;
-const dataAsKml = localStorage.getItem("mySavedDataAsKML") ?? ""; // Load data from the local storage
-<b></b>aMap.addLayer(dataAsKml, { zoomToExtent: true, modifiable: true });  // make the layer modifiable: Note: A modifiable layer must meet the following expectations: Its data must have the format `KML` and must previously be created by the BayernAtlas
-baMap.addEventListener("baGeometryChange",(event) => {
-	localStorage.setItem("mySavedDataAsKML", event.detail.data); // Save data to the local storage
-})
-
+	const baMap = event.target;
+	const dataAsKml = localStorage.getItem("mySavedDataAsKML") ?? ""; // Load data from the local storage
+	baMap.addLayer(dataAsKml, { zoomToExtent: true, modifiable: true });  // make the layer modifiable: Note: A modifiable layer must meet the following expectations: Its data must have the format `KML` and must previously be created by the BayernAtlas
+	
+	baMap.addEventListener("baGeometryChange",(event) => {
+		localStorage.setItem("mySavedDataAsKML", event.detail.data); // Save data to the local storage
+	})
 });
 </code></pre>
 
@@ -625,60 +609,55 @@ baMap.addEventListener("baGeometryChange",(event) => {
 
     	<h4>HTML:</h4>
     	<pre><code class="language-html">&lt;p&gt;Distance: &lt;b&gt;&lt;span class=&quot;distance-span&quot;&gt;0&lt;/span&gt;&lt;/b&gt; km&lt;/p&gt;
-
 &lt;button class=&quot;clear-button&quot;&gt;Clear waypoints&lt;/button&gt;
 &lt;div style=&quot;width: 400px; height: 400px;&quot;&gt;&lt;bayern-atlas ec_srid=&quot;4326&quot;&gt;&lt;/div&gt;
 </code></pre>
 
     	<h4>JavaScript:</h4>
     	<pre><code class="language-javascript">document.querySelector('#exa-distance-haversine bayern-atlas').addEventListener('baLoad', (event) => {
+	const baMap = event.target;
+	let startCoordinate = null;
+	let endCoordinate = null;
 
-const baMap = event.target;
-let startCoordinate = null;
-let endCoordinate = null;
+	// https://en.wikipedia.org/wiki/Haversine_formula
+	const getDistanceInKM = (coordinate1, coordinate2) => {
+		const deg2rad = (deg) => { return deg _ (Math.PI / 180) }
+		var R = 6371; // approximation - earth radius
+		var dLat = deg2rad(coordinate2[0] - coordinate1[0]);
+		var dLon = deg2rad(coordinate2[1] - coordinate1[1]);
+		var a =
+		Math.sin(dLat / 2) _ Math.sin(dLat / 2) +
+		Math.cos(deg2rad(coordinate1[0])) _ Math.cos(deg2rad(coordinate2[0])) _
+		Math.sin(dLon / 2) _ Math.sin(dLon / 2);
+		var c = 2 _ Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+		var d = R \* c;
+		return d.toFixed(3);
+	}
 
-// https://en.wikipedia.org/wiki/Haversine_formula
-const getDistanceInKM = (coordinate1, coordinate2) => {
-const deg2rad = (deg) => { return deg _ (Math.PI / 180) }
-var R = 6371; // approximation - earth radius
-var dLat = deg2rad(coordinate2[0] - coordinate1[0]);
-var dLon = deg2rad(coordinate2[1] - coordinate1[1]);
-var a =
-Math.sin(dLat / 2) _ Math.sin(dLat / 2) +
-Math.cos(deg2rad(coordinate1[0])) _ Math.cos(deg2rad(coordinate2[0])) _
-Math.sin(dLon / 2) _ Math.sin(dLon / 2);
-var c = 2 _ Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-var d = R \* c;
-return d.toFixed(3);
-}
+	document.querySelector(".clear-button").addEventListener('click', () => {
+		baMap.clearMarkers();
+		startCoordinate = endCoordinate = null;
+		document.querySelector(".distance-span").innerText = '0';
+	});
 
-document.querySelector(".clear-button").addEventListener('click', () => {
-baMap.clearMarkers();
-startCoordinate = endCoordinate = null;
-document.querySelector(".distance-span").innerText = '0';
-});
+	baMap.addEventListener('baFeatureSelect', (event) => {
+		const info = event.detail;
+		const coordinate = info.coordinate;
+		if (info.features.length > 0)
+			return;
+		if (startCoordinate == null) {
+			startCoordinate = coordinate;
+			baMap.addMarker(coordinate);
+			return;
+		}
 
-baMap.addEventListener('baFeatureSelect', (event) => {
-const info = event.detail;
-const coordinate = info.coordinate;
-
-    if (info.features.length > 0)
-    	return;
-    if (startCoordinate == null) {
-    	startCoordinate = coordinate;
-    	baMap.addMarker(coordinate);
-    	return;
-    }
-
-    endCoordinate = coordinate;
-    baMap.clearMarkers();
-    baMap.addMarker(startCoordinate);
-    baMap.addMarker(endCoordinate);
-    document.querySelector(".distance-span").innerText
-    	= getDistanceInKM(startCoordinate, endCoordinate);
-
-});
-
+		endCoordinate = coordinate;
+		baMap.clearMarkers();
+		baMap.addMarker(startCoordinate);
+		baMap.addMarker(endCoordinate);
+		document.querySelector(".distance-span").innerText
+			= getDistanceInKM(startCoordinate, endCoordinate);
+	});
 });
 </code></pre>
 
