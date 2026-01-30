@@ -17,17 +17,21 @@
   </head>
   <body>
     <header class="page-header" role="banner">
-      <h1 class="project-name">{{ site.title }}</h1>
-      <h2 class="project-tagline">{{ site.description }}</h2>
-      {% if site.github.is_project_page %}
-        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-      {% endif %}
-      {% if site.show_downloads %}
-        <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
-        <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
-      {% endif %}
-      <button id="theme-toggle">🌓 Toggle Dark Mode</button>
+      <div class="page-header-content">
+        <div>
+          <image class="page-logo" src="{{'assets/favicon.svg'}}"></image>
+        </div>
+        <div class="page-title-container">
+          <h1 class="project-name">{{ site.title }}</h1>
+          <h2 class="project-tagline">{{ site.description }}</h2>
+        </div>
+      </div>
     </header>
+          
+    <button id="theme-toggle">
+      <span class="md">🌓 Toggle Dark Mode</span>
+      <span class="sm">🌓</span>
+    </button>
 
     <main id="content" class="main-content" role="main">
       {{ content }}
@@ -49,7 +53,8 @@
       hljs.highlightAll();
 
       // Theme toggle logic
-      const toggle = document.getElementById('theme-toggle');
+      const toggle = document.getElementById('#theme-toggle');
+
       const html = document.documentElement;
       const lightTheme = document.getElementById('hljs-light');
       const darkTheme = document.getElementById('hljs-dark');
