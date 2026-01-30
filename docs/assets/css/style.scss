@@ -7,6 +7,13 @@
 	--primary-color: oklch(0.25 0.04 236);
 	--heading-color: rgb(9, 157, 220);
 	--text: #333;
+
+	--button-fg-color-light: oklch(0.99 0.004 236);
+	--button-bg-color-light: oklch(0.4 0.14 236);
+	--button-fg-color-dark: oklch(calc(0.55 + 0.25) calc(0.14 - 0.06) 236);
+	--button-bg-color-dark: oklch(0.25 0.04 236);
+	--button-hover-light: oklch(0.55 0.14 236);
+	--button-hover-dark: oklch(calc(0.55 + 0.25) calc(0.14 - 0.06) 236);
 }
 
 body {
@@ -21,18 +28,22 @@ body {
 	padding: 8px 12px;
 	cursor: pointer;
 	border-radius: 6px;
-	color: var(--text);
-	background: #f9f9f9;
-	border: 1px solid #ccc;
+	border: 1px solid #888;
 }
 
 button {
 	padding: 0.5rem 0.75rem;
-	background: #eee;
-	border: 1px #aaa solid;
+	color: var(--button-fg-color-light);
+	background: var(--button-bg-color-light);
 	border-radius: 6px;
 	font-size: 0.9rem;
 	font-weight: 600;
+	border: none;
+	cursor: pointer;
+}
+
+button:hover {
+	background: var(--button-hover-light);
 }
 
 code {
@@ -49,8 +60,6 @@ select {
 	margin-left: auto;
 	margin-right: 0;
 	display: block;
-	background-color: #f5f5f5;
-
 }
 
 .example {
@@ -60,39 +69,48 @@ select {
 	padding: 16px;
 	margin-bottom: 30px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	overflow-x: hidden;
 }
 
 .page-header {
-	background-image: url(../favicon.svg) !important;
-	background-repeat: no-repeat;
-	background-size: 105px;
+	background-image: none;
 	background-color: var(--primary-color);
-	background-position-y: 18px;
-	background-position-x: calc(54% - 15rem);
-	padding: 2.5rem 1rem;
-	text-align: left;
+	padding: 2.1rem 1rem;
+}
 
-	.project-name,
-	.project-tagline {
-		/* TITLE */
-		color: #fff !important;
-		padding: 0;
-		text-align: left;
-		margin: 0 0 0 calc(54% - 10rem) !important;
-		text-shadow: 1px 0px #000;
+.page-header-content {
+	display: flex;	
+	justify-content: center;
+  	align-items: center;
+	text-align: left;
+	gap: 1.6rem;
+
+	.page-logo {
+		width: 110px;
 	}
+
+	.page-title-container {
+		margin-bottom: 7px;
+	}
+
+	.project-name {
+		font-size: 1.5rem;
+	}
+
 	.project-tagline {
 		opacity: 0.85;
 	}
 
-	a {
-		display: none;
+	.project-name, .project-tagline {
+		color: #fff !important;
+		padding: 0;
+		text-shadow: 1px 0px #000;
+		margin-top: 4px !important;
+		margin-bottom: 4px !important;
+		
 	}
 }
 
-h1.project-name {
-	font-size: 1.5rem;
-}
 
 h1,
 h2,
@@ -125,15 +143,62 @@ a {
 	}
 }
 
-.full-width {
-	width: 100%;
+@media screen and (max-width: 768px) {
+	.sm {
+		display: inherit;
+	}
+	
+	.md {
+		display: none;
+	}
+}
+
+
+@media screen and (min-width: 768px) {
+	.sm {
+		display: none;
+	}
+	
+	.md {
+		display: inherit;
+	}
+}
+
+@media screen and (min-width: 360px) {
+	.page-header-content {
+		gap: 1.25rem;
+	
+		.page-logo {
+			width: 80px;
+		}
+
+		.page-title-container {
+			margin-bottom: 3px;
+		}
+
+		.project-name {
+			font-size: 1.25rem;
+		}
+
+		.project-tagline {
+			opacity: 0.85;
+		}
+
+		.project-name, .project-tagline {
+			color: #fff !important;
+			padding: 0;
+			text-shadow: 1px 0px #000;
+			margin-top: 4px !important;
+			margin-bottom: 4px !important;
+			
+		}
+	}
 }
 
 html[data-theme='dark'] {
 	#theme-toggle {
-		background: #333;
 		color: inherit;
-		border-color: #333;
+		border-color: #555;
 	}
 
 	input, select, option {
@@ -145,18 +210,19 @@ html[data-theme='dark'] {
 		color: #eee;
 
 		button {
-			background-color: #333;
+			color: var(--button-fg-color-light);
+			background: var(--button-bg-color-dark);
 		}
 
-		button,
-		code {
+		button, code {
 			border: 1px solid #444;
 		}
 
-		button:hover {
-			background-color: #4e7da7;
-			cursor: pointer;
-		}
+	}
+
+	button:hover {
+		background: var(--button-hover-dark);
+		border-color: var(--button-hover-dark);
 	}
 
 	.example {
