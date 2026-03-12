@@ -54,7 +54,7 @@ Output coordinates can be configured via the `ec_srid` attribute.
 
 ```html
 // Include the WebComponent script
-<script src="https://bayernatlas.de/wc.js" type="module"></script>
+<script src="https://atlas.bayern.de/wc.js" type="module"></script>
 ```
 
 ```html
