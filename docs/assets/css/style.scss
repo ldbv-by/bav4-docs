@@ -78,12 +78,17 @@ select {
 	padding: 2.1rem 1rem;
 }
 
+a.page-header-link {
+	text-decoration: none !important;
+}
+
 .page-header-content {
 	display: flex;	
 	justify-content: center;
   	align-items: center;
 	text-align: left;
 	gap: 1.6rem;
+
 
 	.page-logo {
 		width: 110px;
