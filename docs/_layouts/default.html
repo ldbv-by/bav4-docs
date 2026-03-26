@@ -38,6 +38,12 @@
 
   </header>
 
+ {% if page.url != "/" %}
+  <a id="back-to-main" href="/">
+    <span class="md">Back to Main Page</span>
+  </a>
+{% endif %}
+  
   <button id="theme-toggle">
     <span class="md">🌓 Toggle Dark Mode</span>
     <span class="sm">🌓</span>

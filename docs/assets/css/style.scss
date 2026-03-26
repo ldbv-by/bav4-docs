@@ -31,7 +31,18 @@ body {
 	border: 1px solid #888;
 }
 
-button {
+#back-to-main {
+	position: fixed;
+	bottom: 16px;
+	left: 16px;
+	padding: 8px 12px;
+	cursor: pointer;
+	border-radius: 6px;
+	border: 1px solid #888;
+	text-decoration: none !important;
+}
+
+button, #back-to-main {
 	padding: 0.5rem 0.75rem;
 	color: var(--button-fg-color-light);
 	background: var(--button-bg-color-light);
@@ -42,7 +53,7 @@ button {
 	cursor: pointer;
 }
 
-button:hover {
+button:hover, #back-to-main:hover {
 	background: var(--button-hover-light);
 }
 
@@ -201,7 +212,7 @@ a {
 }
 
 html[data-theme='dark'] {
-	#theme-toggle {
+	#theme-toggle, #back-to-main {
 		color: inherit;
 		border-color: #555;
 	}
@@ -214,18 +225,18 @@ html[data-theme='dark'] {
 		background: #121212;
 		color: #eee;
 
-		button {
+		button, #back-to-main {
 			color: var(--button-fg-color-light);
 			background: var(--button-bg-color-dark);
 		}
 
-		button, code {
+		button, #back-to-main, code {
 			border: 1px solid #444;
 		}
 
 	}
 
-	button:hover {
+	button:hover, #back-to-main:hover {
 		background: var(--button-hover-dark);
 		border-color: var(--button-hover-dark);
 	}
