@@ -3,7 +3,7 @@
 	"devDependencies": {
 		"documentation": "^14.0.3",
 		"gh-pages": "^6.3.0",
-		"prettier": "3.8.1"
+		"prettier": "3.8.2"
 	},
 	"scripts": {
 		"ensure-repo": "node ./scripts/ensure-repo.js 'https://github.com/ldbv-by/bav4.git' 'bav4' 'v4.5'",
