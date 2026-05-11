@@ -473,7 +473,18 @@ ba.addEventListener('baLoad', (event) => {
 </div>
 
 <div class="example">
-	<h3>Create Geometries</h3>
+	<h3>Measure</h3>
+	<div id="measure-tool" class="output" style="height: 400px;"><bayern-atlas ec_srid="4326" ec_measuring_tool="true"></bayern-atlas></div>
+	<div id="measure-tool_desc">Click on the measurement button in the map to start measuring.</div>
+	<div id="measure-tool_output" class="output" style="display: none">
+		<pre><code></code></pre>
+	</div>
+    <h4>HTML:</h4>
+    <pre><code class="language-html">&lt;bayern-atlas ec_srid=&quot;4326&quot; ec_measuring_tool=&quot;true&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
+</div>
+
+<div class="example">
+	<h3>Draw Geometries</h3>
 	<div id="d3gd63fs" class="output"><bayern-atlas ec_srid="4326" ec_draw_tool="point,line,polygon" ec_geometry_format="kml"></bayern-atlas></div>
 	<div id="d3gd63fs_desc">Create a geometry after enabling the drawing tool...</div>
 	<div id="d3gd63fs_output" class="output" style="display: none">
@@ -494,7 +505,7 @@ ba.addEventListener('baLoad', (event) => {
     	});
     </script>
     <h4>HTML:</h4>
-    <pre><code class="language-html">&lt;bayern-atlas ec_srid=&quot;4326&quot; ec_draw_tool=&quot;point,line,polygon&quot; ec_geometry_format=&quot;kml&quot;&gt;</code></pre>
+    <pre><code class="language-html">&lt;bayern-atlas ec_srid=&quot;4326&quot; ec_draw_tool=&quot;point,line,polygon&quot; ec_geometry_format=&quot;kml&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
     <h4>JavaScript:</h4>
     <pre><code class="language-javascript">document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {
 	const baMap = event.target;
@@ -711,54 +722,6 @@ ba.addEventListener('baLoad', (event) => {
     	</script>
     </div>
 
-    <!-- Load highlight.js -->
-    <script
-    	src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"
-    	integrity="sha384-RH2xi4eIQ/gjtbs9fUXM68sLSi99C7ZWBRX1vDrVv6GQXRibxXLbwO2NGZB74MbU"
-    	crossorigin="anonymous"
-    ></script>
-    <script>
-    	// Initialize syntax highlighting
-    	hljs.highlightAll();
-
-    	// Theme toggle logic
-    	const toggle = document.getElementById('theme-toggle');
-    	const html = document.documentElement;
-    	const lightTheme = document.getElementById('hljs-light');
-    	const darkTheme = document.getElementById('hljs-dark');
-
-    	const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    	if (isDark) {
-    		html.setAttribute('data-theme', 'dark');
-    		darkTheme.disabled = false;
-    	} else {
-    		lightTheme.disabled = false;
-    	}
-
-    	toggle.addEventListener('click', () => {
-    		const isDark = html.getAttribute('data-theme') === 'dark';
-    		html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    		darkTheme.disabled = isDark;
-    		lightTheme.disabled = !isDark;
-    	});
-
-    	document.querySelectorAll('pre > code[class^="language"]').forEach((block) => {
-    		const button = document.createElement('button');
-    		button.classList.add('copy-button');
-    		button.innerText = 'Copy';
-    		button.style.top = '8px';
-    		button.style.right = '8px';
-    		button.style.zIndex = '10';
-    		button.onclick = () => {
-    			navigator.clipboard.writeText(block.parentElement.querySelector('code').textContent).then(() => {
-    				button.innerText = 'Copied!';
-    				setTimeout(() => (button.innerText = 'Copy'), 2000);
-    			});
-    		};
-    		block.parentElement.after(button);
-    	});
-    </script>
     <script src="https://atlas.bayern.de/wc.js" type="module" crossorigin="anonymous"></script>
 
 </div>
