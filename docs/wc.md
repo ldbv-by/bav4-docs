@@ -162,10 +162,11 @@ label: "My label" // The label of the marker (string, optional). Must be set if 
 | Attribute            | Type      | Description                                      |
 |----------------------|-----------|--------------------------------------------------|
 | `c`                  | `string`  | The Center coordinate (longitude,latitude / easting,northing) in `4326` (lon, lat) or in `25832`. Example: `c="11,48"`. |
-| `ec_draw_tool`       | `boolean` | Display the drawing tool for the types `point`, `line`, `polygon`: Example: `ec_draw_tool="point,line,polygon"`. |
+| `ec_draw_tool`       | `string`  | Display the drawing tool for the types `point`, `line`, `polygon`: Example: `ec_draw_tool="point,line,polygon"`. |
 | `ec_geometry_format` | `string`  | Designated Type (format) of returned features. One of `ewkt`, `kml`, `geojson`, `gpx`. Default is `ewkt`. Example: `ec_geometry_format="geoJson"`. |
 | `ec_link_to_app`     | `boolean` | Display a chip that opens the current view in the BayernAtlas. Example: `ec_link_to_app="true"`. |
 | `ec_map_activation`  | `boolean` | Display the map insensitive for user interactions unless the user activates the map via a button. Example: `ec_map_activation="true"`. |
+| `ec_measuring_tool`  | `boolean` | Display the measuring tool: Example: `ec_measuring_tool="true"`. |
 | `ec_srid`            | `string`  | Designated SRID of returned coordinates (e.g. of geometries). One of `3857`, `4326` , `25832`. Default is `4326`. Example: `ec_srid="25832"`. |
 | `l`                  | `string`  | The layers of the map. Example: `l="layer_a,layer_b"`. |
 | `l_o`                | `string`  | The opacity of the layers of the map. Example: `l_o="1,0.5"`. |

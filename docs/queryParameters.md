@@ -19,16 +19,18 @@
         *   [Examples][15]
     *   [LAYER\_DISPLAY\_FEATURE\_LABELS][16]
         *   [Examples][17]
-    *   [QUERY][18]
+    *   [LAYER\_CLUSTER\_PARAMS][18]
         *   [Examples][19]
-    *   [FEATURE\_INFO\_REQUEST][20]
+    *   [QUERY][20]
         *   [Examples][21]
-    *   [ZOOM\_TO\_EXTENT][22]
+    *   [FEATURE\_INFO\_REQUEST][22]
         *   [Examples][23]
-    *   [CROSSHAIR][24]
+    *   [ZOOM\_TO\_EXTENT][24]
         *   [Examples][25]
-    *   [GEOLOCATION][26]
+    *   [CROSSHAIR][26]
         *   [Examples][27]
+    *   [GEOLOCATION][28]
+        *   [Examples][29]
 
 ## domain/queryParameters
 
@@ -38,7 +40,7 @@ Enum which holds all valid query parameter keys for URL-based map configuration.
 
 Query parameters allow users to share and embed customized map states through URLs.
 
-Type: [String][28]
+Type: [String][30]
 
 ### Examples
 
@@ -159,6 +161,23 @@ Order must correspond to the `LAYER` parameter order.
 https://atlas.bayern.de?l=atkis,f_11d82da0-caef-11f0-a60a-dfceed522f95_ba878c95-c163-4f34-a0cd-350c10556e00&l_dfl=true,false
 ```
 
+### LAYER\_CLUSTER\_PARAMS
+
+**Parameter Key:** `"l_cp"`
+**Type:** `string|boolean,string|boolean,...` (comma-separated, indexed by layer order)
+
+Specifies active clustering or custom cluster params for each layer.
+
+#### Examples
+
+```javascript
+https://atlas.bayern.de?l=atkis,914c9263-5312-453e-b3eb-5104db1bf788&l_cp=true
+```
+
+```javascript
+https://atlas.bayern.de?l=atkis,914c9263-5312-453e-b3eb-5104db1bf788&l_cp=45
+```
+
 ### QUERY
 
 **Parameter Key:** `"q"`
@@ -265,24 +284,28 @@ https://atlas.bayern.de?gl=true
 
 [17]: #examples-7
 
-[18]: #query
+[18]: #layer_cluster_params
 
 [19]: #examples-8
 
-[20]: #feature_info_request
+[20]: #query
 
 [21]: #examples-9
 
-[22]: #zoom_to_extent
+[22]: #feature_info_request
 
 [23]: #examples-10
 
-[24]: #crosshair
+[24]: #zoom_to_extent
 
 [25]: #examples-11
 
-[26]: #geolocation
+[26]: #crosshair
 
 [27]: #examples-12
 
-[28]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[28]: #geolocation
+
+[29]: #examples-13
+
+[30]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
