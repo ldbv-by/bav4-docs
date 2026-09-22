@@ -25,7 +25,7 @@
     <div class="page-header-content">
       <div>
         <a class="page-header-link" href="/bav4-docs">
-          <image class="page-logo" src="{{'assets/favicon.svg'}}"></image>
+          <image class="page-logo" src="{{'/assets/favicon.svg'}}"></image>
         </a>
       </div>
       <div class="page-title-container">
@@ -38,12 +38,12 @@
 
   </header>
 
- {% if page.url != "/" and page.url != "/bav4-docs" %}
+  {% if page.url != "/" and page.url != "/bav4-docs" %}
   <a id="back-to-main" href="/bav4-docs">
     <span class="md">Back to Main Page</span>
   </a>
-{% endif %}
-  
+  {% endif %}
+
   <button id="theme-toggle">
     <span class="md">🌓 Toggle Dark Mode</span>
     <span class="sm">🌓</span>
@@ -93,6 +93,9 @@
       lightTheme.disabled = !isDark;
     });
   </script>
+  <script src="https://atlas.bayern.de/wc.js" type="module" crossorigin="anonymous"></script>
+  </div>
+
 </body>
 
 </html>

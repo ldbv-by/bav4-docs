@@ -1,0 +1,29 @@
+<!-- Quick Start Example - Programmatically -->
+<div class="example">
+    <h3>2. Setup Map programmatically</h3>
+    <div id="skd63" class="output"><bayern-atlas></bayern-atlas></div>
+    <script>
+        document.querySelector('#skd63 bayern-atlas').addEventListener('baLoad', (event) => {
+            const ba = event.target;
+            const { GEORESOURCE_AERIAL } = ba;
+            ba.addLayer(GEORESOURCE_AERIAL);
+            ba.modifyView({ zoom: 10, center: [11, 48] });
+        });
+    </script>
+    <h4>HTML:</h4>
+    <pre><code class="language-html">&lt;bayern-atlas l=&quot;&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
+    <h4>JavaScript:</h4>
+    <pre><code class="language-javascript">// register a load-event listener on the map
+document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {  
+	// save to call the bayern-atlas map now
+	const baMap = event.target;
+	const { GEORESOURCE_AERIAL } = ba;
+	//add a layer to the map referencing the the GeoResource with the ID = GEORESOURCE_AERIAL
+	baMap.addLayer(GEORESOURCE_AERIAL);
+	// position the map
+	baMap.modifyView({ zoom: 10, center: [11, 48] });
+});
+
+</code></pre>
+
+</div>
