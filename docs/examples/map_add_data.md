@@ -1,7 +1,6 @@
 
 <div class="example">
 	<h3>Add Data to the Map</h3>
-	<b>Note:</b>
 	<p>This example shows how to add data in ewkt format to the map. The setup for the other supported data types (GeoJSON, KML, GPX) is similar.</p>
 	<div id="dfjc52vc" class="output"><bayern-atlas l="GEORESOURCE_WEB_GRAY"></bayern-atlas></div>
 	<script>
@@ -14,7 +13,7 @@
 		});
 	</script>
 	<h4>HTML:</h4>
-	<pre><code class="language-html">&lt;bayern-atlas l=&quot;&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
+	<pre><code class="language-html">&lt;bayern-atlas l=&quot;GEORESOURCE_WEB_GRAY&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
 	<h4>JavaScript:</h4>
 	<pre><code class="language-javascript">document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {
 	const baMap = event.target;

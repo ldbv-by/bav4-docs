@@ -20,7 +20,7 @@
 		});
 	</script>
 	<h4>HTML:</h4>
-	<pre><code class="language-html">&lt;bayern-atlas l=&quot;&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
+	<pre><code class="language-html">&lt;bayern-atlas l=&quot;GEORESOURCE_WEB_GRAY&quot;&gt;&lt;/bayern-atlas&gt;</code></pre>
 	<h4>JavaScript:</h4>
 	<pre><code class="language-javascript">document.querySelector('bayern-atlas').addEventListener('baLoad', (event) => {
 	const baMap = event.target;
