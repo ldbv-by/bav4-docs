@@ -1,7 +1,6 @@
 
 <div class="example">
 	<h3>Add Data to the Map</h3>
-	<b>Note:</b>
 	<p>This example shows how to add data in ewkt format to the map. The setup for the other supported data types (GeoJSON, KML, GPX) is similar.</p>
 	<div id="dfjc52vc" class="output"><bayern-atlas l="GEORESOURCE_WEB_GRAY"></bayern-atlas></div>
 	<script>
