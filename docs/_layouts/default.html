@@ -92,6 +92,21 @@
       darkTheme.disabled = isDark;
       lightTheme.disabled = !isDark;
     });
+    document.querySelectorAll('pre > code[class^="language"]').forEach((block) => {
+      const button = document.createElement('button');
+      button.classList.add('copy-button');
+      button.innerText = 'Copy';
+      button.style.top = '8px';
+      button.style.right = '8px';
+      button.style.zIndex = '10';
+      button.onclick = () => {
+        navigator.clipboard.writeText(block.parentElement.querySelector('code').textContent).then(() => {
+          button.innerText = 'Copied!';
+          setTimeout(() => (button.innerText = 'Copy'), 2000);
+        });
+      };
+      block.parentElement.after(button);
+    });
   </script>
   <script src="https://atlas.bayern.de/wc.js" type="module" crossorigin="anonymous"></script>
   </div>
