@@ -1,6 +1,5 @@
 <div class="example">
 	<h3>Change Map Size</h3>
-	<b>Note:</b>
 	<p>The WebComponent matches the size of its parent container. You should not resize the WebComponent directly.</p>
     <div class="size-example-wrapper"><bayern-atlas l="GEORESOURCE_WEB"></bayern-atlas></div>
     <style>

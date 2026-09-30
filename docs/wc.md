@@ -104,24 +104,31 @@ center: [1286733,039367 6130639,596329], // The new center coordinate in 4326 (l
 rotation: 0.5 // The new rotation pf the map in rad (number, optional)
 }
 
-// Defines a coordinate
+// Defines a Coordinate
 Coordinate // An array of two numbers representing an XY coordinate. Ordering is [easting, northing] or [lon, lat]. Example: `[16, 48]`.
 
-// Defines an extent
+// Defines an Extent
 Extent // An array of four numbers representing an extent: `[minx, miny, maxx, maxy]`.
 
-// Defines a geometry
+// Defines a Geometry
 Geometry {
 type: 'EWKT',  // The type of the geometry (string)
 srid: 4236,  //The srid of the geometry (number)
 data: 'SRID=4326POINT(15 20)',  //The data of the geometry (string)
 }
 
-// Defines a feature
+// Defines a Feature
 Feature {
 geometry:  {type: 'EWKT', srid: 4236, data: 'SRID=4326POINT(15 20)'} // The geometry of the feature (Geometry)
 label: "Foo", // The label of the feature (string, optional)
+content: "<b>content</b>", // The HTML-formatted content of the feature (string, optional)
 properties: {} // The properties of the feature (object, optional)
+}
+
+// Defines a FeatureInfo result
+FeatureInfoResult {
+label: "Foo", // The label of the feature (string)
+content: "<b>content</b>", // The HTML-formatted content of the feature (string, optional)
 }
 
 // Defines the options for adding a layer
@@ -145,12 +152,12 @@ style: { baseColor: "#fcba03" },  // If applicable the style of this layer (Styl
 displayFeatureLabels: true // If applicable labels of features should be displayed (boolean, optional)
 }
 
-// Defines the style for a layer
+// Defines the Style for a layer
 Style {
 baseColor: "#fcba03" //A simple base color as style for this layer (seven-character hexadecimal notation) or `null`
 }
 
-// Defines the options for a marker
+// Defines the options for a Marker
 MarkerOptions {
 id: "myMarker0", // The id of the marker (string, optional). When no ID is given a random ID will be generated
 label: "My label" // The label of the marker (string, optional). Must be set if the marker should be selectable by the user
@@ -213,7 +220,7 @@ label: "My label" // The label of the marker (string, optional). Must be set if 
 | Event              | Type                | Description                                      |
 |--------------------|---------------------|--------------------------------------------------|
 | `baChange`         | `CustomEvent<this>` | Fired when the state of the BayernAtlas map has changed.<br />See `event.detail` for the payload of the event.<br />The following changes are supported:<br />`c` - The center of the map has changed<br />`z` - The zoom level of the map has changed<br />`r` - The rotation of the map has changed<br />`l` - List of layers has changed<br />`l_v` - The visibility of a layer has changed<br />`l_o` - The opacity of a layer has changed |
-| `baFeatureSelect`  | `CustomEvent<this>` | Fired when one or more features are selected. Use `event.detail` to access the selected `Feature`. |
+| `baFeatureSelect`  | `CustomEvent<this>` | Fired when one or more features are selected. Use `event.detail` to access the selected `Feature` or `FeatureInfoResult`. Note: Only the "label" and "content" fields are sanitized against XSS. |
 | `baGeometryChange` | `CustomEvent<this>` | Fired when the user creates or modifies a geometry. Use `event.detail` to access its `Geometry`. |
 | `baLoad`           | `CustomEvent<this>` | Fired when the BayernAtlas is loaded             |
 | `connected`        | `CustomEvent<this>` |                                                  |
